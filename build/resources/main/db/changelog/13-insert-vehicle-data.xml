@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="11" author="author">
+        <sql>
+            INSERT INTO vehicle (make, model, year, price, description)
+            VALUES ('Toyota', 'Camry', 2022, 25000.00, 'Sedan');
+        </sql>
+    </changeSet>
+
+    <changeSet id="12" author="author">
+        <sql>
+            INSERT INTO vehicle (make, model, year, price, description)
+            VALUES ('Honda', 'Civic', 2021, 22000.00, 'Compact Car');
+        </sql>
+    </changeSet>
+
+    <changeSet id="13" author="author">
+        <sql>
+            INSERT INTO vehicle (make, model, year, price, description)
+            VALUES ('Ford', 'F-150', 2020, 35000.00, 'Pickup Truck');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

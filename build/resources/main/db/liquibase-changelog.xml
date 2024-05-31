@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="changelog/04-create-user-table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/05-create-vehicle-table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/06-create-vehicle-history-table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/07-create-negotiation-table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/08-create-message-table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/09-create-inspection-table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/10-create-test-drive-table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/11-create-review-table.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/13-insert-vehicle-data.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/14-1-insert-user-data.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/14-insert-negotiation-data.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/15-insert-vehicle-history-data.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/16-insert-message-data.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/17-insert-inspection-data.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/18-insert-test-drive-data.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/19-insert-review-data.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

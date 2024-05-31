@@ -1,0 +1,954 @@
+openapi: 3.0.1
+info:
+  title: mobiauto-backend-interview
+  version: "0.0"
+paths:
+  /messages:
+    get:
+      tags:
+      - Messages
+      summary: Get all messages
+      description: Returns all messages from the database
+      operationId: getAllMessages
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        "202":
+          description: Messages found in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: No messages found
+        "200":
+          description: getAllMessages 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    post:
+      tags:
+      - Messages
+      summary: Create a message
+      description: Creates a message in the database
+      operationId: createMessage
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Message"
+        required: true
+      responses:
+        "201":
+          description: Message created in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "302":
+          description: Message already exists
+        "200":
+          description: createMessage 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+  /messages/{id}:
+    get:
+      tags:
+      - Messages
+      summary: Get message by ID
+      description: Returns a message by ID from the database
+      operationId: getMessageById
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "202":
+          description: Message found in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: Message not found
+        "200":
+          description: getMessageById 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    put:
+      tags:
+      - Messages
+      summary: Update a message
+      description: Updates a message in the database
+      operationId: updateMessage
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Message"
+        required: true
+      responses:
+        "202":
+          description: Message updated in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: Message not found
+        "200":
+          description: updateMessage 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    delete:
+      tags:
+      - Messages
+      summary: Delete a message
+      description: Delete a message in the database
+      operationId: deleteMessage
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "202":
+          description: Message deleted in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: Message not found
+        "200":
+          description: deleteMessage 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+  /negotiations:
+    get:
+      tags:
+      - Negotiations
+      summary: Get all negotiations
+      description: Returns all negotiations from the database
+      operationId: getAllNegotiations
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        "202":
+          description: Negotiations found in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: No negotiations found
+        "200":
+          description: getAllNegotiations 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    post:
+      tags:
+      - Negotiations
+      summary: Create a negotiation
+      description: Creates a negotiation in the database
+      operationId: createMessage_1
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Negotiation"
+        required: true
+      responses:
+        "201":
+          description: Negotiation created in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "302":
+          description: Negotiation already exists
+        "200":
+          description: createMessage_1 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+  /negotiations/{id}:
+    get:
+      tags:
+      - Negotiations
+      summary: Get negotiations by ID
+      description: Returns a negotiation by ID from the database
+      operationId: getNegotiationById
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "202":
+          description: Negotiation found in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: negotiation not found
+        "200":
+          description: getNegotiationById 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    put:
+      tags:
+      - Negotiations
+      summary: Update a negotiation
+      description: Update a negotiation in the database
+      operationId: updateMessage_1
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Negotiation"
+        required: true
+      responses:
+        "202":
+          description: Negotiation updated in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: Negotiation not found
+        "200":
+          description: updateMessage_1 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    delete:
+      tags:
+      - Negotiations
+      summary: Delete a negotiation
+      description: Deletes a negotiation in the database
+      operationId: deleteMessage_1
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "202":
+          description: Negotiation deleted in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: Negotiation not found
+        "200":
+          description: deleteMessage_1 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+  /users:
+    get:
+      tags:
+      - Users
+      summary: Get all users
+      description: Returns all users from the database
+      operationId: getAllUsers
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        "202":
+          description: Users found in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: No users found
+        "200":
+          description: getAllUsers 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    post:
+      tags:
+      - Users
+      summary: Create a user
+      description: Creates a user in the database
+      operationId: createMessage_2
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+      responses:
+        "201":
+          description: User created in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "302":
+          description: User already exists
+        "200":
+          description: createMessage_2 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+  /users/{id}:
+    get:
+      tags:
+      - Users
+      summary: Get users by ID
+      description: Returns a user by ID from the database
+      operationId: getUserById
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "202":
+          description: User found in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: User not found
+        "200":
+          description: getUserById 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    delete:
+      tags:
+      - Users
+      summary: Delete a user
+      description: Deletes a user in the database
+      operationId: deleteMessage_2
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "202":
+          description: User deleted in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: User not found
+        "200":
+          description: deleteMessage_2 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+  /vehicleHistories:
+    get:
+      tags:
+      - Vehicle History
+      summary: Get all vehicleHistorys
+      description: Returns all vehicleHistorys from the database
+      operationId: getAllVehicleHistory
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        "202":
+          description: Vehicle History found in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: No Vehicle History found
+        "200":
+          description: getAllVehicleHistory 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    post:
+      tags:
+      - Vehicle History
+      summary: Create a Vehicle History
+      description: Creates a Vehicle History in the database
+      operationId: createMessage_3
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VehicleHistory"
+        required: true
+      responses:
+        "201":
+          description: Vehicle History created in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "302":
+          description: Vehicle History already exists
+        "200":
+          description: createMessage_3 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+  /vehicleHistories/{id}:
+    get:
+      tags:
+      - Vehicle History
+      summary: Get Vehicle History by ID
+      description: Returns a Vehicle History by ID from the database
+      operationId: getVehicleHistoryById
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "202":
+          description: Vehicle History found in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: Vehicle History not found
+        "200":
+          description: getVehicleHistoryById 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    put:
+      tags:
+      - Vehicle History
+      summary: Update a Vehicle History
+      description: Update a Vehicle History in the database
+      operationId: updateMessage_2
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VehicleHistory"
+        required: true
+      responses:
+        "202":
+          description: Vehicle History updated in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: Vehicle History not found
+        "200":
+          description: updateMessage_2 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    delete:
+      tags:
+      - Vehicle History
+      summary: Delete a Vehicle History
+      description: Deletes a Vehicle History in the database
+      operationId: deleteMessage_3
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "202":
+          description: Vehicle History deleted in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: Vehicle History not found
+        "200":
+          description: deleteMessage_3 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+  /vehicles:
+    get:
+      tags:
+      - Vehicles
+      summary: Get all vehicles
+      description: Returns all vehicles from the database
+      operationId: getAllVehicles
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        "202":
+          description: Vehicles found in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: No vehicles found
+        "200":
+          description: getAllVehicles 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    post:
+      tags:
+      - Vehicles
+      summary: Create a vehicle
+      description: Creates a vehicle in the database
+      operationId: createMessage_4
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Vehicle"
+        required: true
+      responses:
+        "201":
+          description: Vehicle created in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "302":
+          description: Vehicle already exists
+        "200":
+          description: createMessage_4 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+  /vehicles/{id}:
+    get:
+      tags:
+      - Vehicles
+      summary: Get vehicle by ID
+      description: Returns a vehicle by ID from the database
+      operationId: getVehicleById
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "202":
+          description: Vehicle found in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: Vehicle not found
+        "200":
+          description: getVehicleById 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    put:
+      tags:
+      - Vehicles
+      summary: Update a Vehicle
+      description: Update a Vehicle in the database
+      operationId: updateMessage_3
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Vehicle"
+        required: true
+      responses:
+        "202":
+          description: Vehicle updated in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: Vehicle not found
+        "200":
+          description: updateMessage_3 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+    delete:
+      tags:
+      - Vehicles
+      summary: Delete a vehicle
+      description: Deletes a vehicle in the database
+      operationId: deleteMessage_4
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "202":
+          description: Vehicle deleted in the database
+          content:
+            application/json:
+              schema:
+                type: string
+        "403":
+          description: Invalid API key
+        "404":
+          description: Vehicle not found
+        "200":
+          description: deleteMessage_4 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseDTO"
+components:
+  schemas:
+    ApiResponseDTO:
+      type: object
+      properties:
+        message:
+          type: string
+        result: {}
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        negotiation:
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/Negotiation"
+        sender:
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/User"
+        content:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    Negotiation:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        buyer:
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/User"
+        vehicle:
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/Vehicle"
+        initialOffer:
+          type: number
+          format: double
+        startDate:
+          type: string
+          format: date-time
+        messages:
+          type: array
+          items:
+            $ref: "#/components/schemas/Message"
+        messagesCount:
+          type: integer
+          format: int32
+        lastMessage:
+          $ref: "#/components/schemas/Message"
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        username:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+        registeredDate:
+          type: string
+          format: date-time
+    Vehicle:
+      type: object
+      properties:
+        make:
+          type: string
+        model:
+          type: string
+        year:
+          type: integer
+          format: int32
+        price:
+          type: number
+          format: double
+        description:
+          type: string
+    VehicleHistory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        vehicle:
+          nullable: true
+          allOf:
+          - $ref: "#/components/schemas/Vehicle"
+        eventDate:
+          type: string
+          format: date-time
+        description:
+          type: string

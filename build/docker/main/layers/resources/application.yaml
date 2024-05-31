@@ -1,0 +1,33 @@
+micronaut:
+  application:
+    name: mobiauto-backend-interview
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      swagger-ui:
+        mapping: /swagger-ui/**
+        paths: classpath:META-INF/swagger/views/swagger-ui
+
+datasources:
+  default:
+    db-type: postgres
+    dialect: POSTGRES
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://db:5432/mydb
+    username: myuser
+    password: mypassword
+
+liquibase:
+  datasource:
+    default:
+      change-log:
+        classpath: db/liquibase-changelog.xml
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none

@@ -1,0 +1,43 @@
+Manifest-Version: 1.0
+Class-Path: resources/ classes/ libs/micronaut-data-hibernate-jpa-4.7.1.
+ jar libs/micronaut-liquibase-6.3.0.jar libs/micronaut-serde-jackson-2.9
+ .0.jar libs/micronaut-jdbc-hikari-5.6.0.jar libs/postgresql-42.7.3.jar 
+ libs/micronaut-data-jpa-4.7.1.jar libs/micronaut-data-runtime-4.7.1.jar
+  libs/micronaut-data-model-4.7.1.jar libs/micronaut-data-tx-hibernate-4
+ .7.1.jar libs/micronaut-hibernate-jpa-5.6.0.jar libs/micronaut-data-tx-
+ jdbc-4.7.1.jar libs/micronaut-data-connection-jdbc-4.7.1.jar libs/micro
+ naut-jdbc-5.6.0.jar libs/micronaut-serde-support-2.9.0.jar libs/microna
+ ut-serde-api-2.9.0.jar libs/micronaut-data-tx-4.7.1.jar libs/micronaut-
+ data-connection-hibernate-4.7.1.jar libs/micronaut-validation-4.5.0.jar
+  libs/micronaut-data-connection-4.7.1.jar libs/micronaut-reactor-3.3.0.
+ jar libs/micronaut-http-server-netty-4.4.10.jar libs/micronaut-http-net
+ ty-4.4.10.jar libs/micronaut-http-server-4.4.10.jar libs/micronaut-mana
+ gement-4.4.10.jar libs/micronaut-router-4.4.10.jar libs/micronaut-jacks
+ on-core-4.4.10.jar libs/micronaut-json-core-4.4.10.jar libs/micronaut-h
+ ttp-4.4.10.jar libs/micronaut-context-propagation-4.4.10.jar libs/micro
+ naut-discovery-core-4.4.10.jar libs/micronaut-context-4.4.10.jar libs/m
+ icronaut-buffer-netty-4.4.10.jar libs/micronaut-aop-4.4.10.jar libs/mic
+ ronaut-inject-4.4.10.jar libs/logback-classic-1.5.3.jar libs/checker-qu
+ al-3.42.0.jar libs/jackson-annotations-2.17.0.jar libs/jackson-core-2.1
+ 7.0.jar libs/jakarta.annotation-api-2.1.1.jar libs/netty-codec-http2-4.
+ 1.110.Final.jar libs/netty-codec-http-4.1.110.Final.jar libs/netty-hand
+ ler-4.1.110.Final.jar libs/netty-codec-4.1.110.Final.jar libs/netty-tra
+ nsport-native-unix-common-4.1.110.Final.jar libs/netty-transport-4.1.11
+ 0.Final.jar libs/netty-buffer-4.1.110.Final.jar libs/netty-resolver-4.1
+ .110.Final.jar libs/netty-common-4.1.110.Final.jar libs/reactor-core-3.
+ 6.4.jar libs/micronaut-core-reactive-4.4.10.jar libs/reactive-streams-1
+ .0.4.jar libs/liquibase-core-4.26.0.jar libs/snakeyaml-2.2.jar libs/mic
+ ronaut-core-4.4.10.jar libs/hibernate-core-6.4.4.Final.jar libs/jakarta
+ .persistence-api-3.1.0.jar libs/jakarta.transaction-api-2.0.1.jar libs/
+ logback-core-1.5.3.jar libs/HikariCP-5.1.0.jar libs/slf4j-api-2.0.12.ja
+ r libs/jakarta.validation-api-3.0.2.jar libs/jakarta.inject-api-2.0.1.j
+ ar libs/jboss-logging-3.5.0.Final.jar libs/hibernate-commons-annotation
+ s-6.0.6.Final.jar libs/jandex-3.1.2.jar libs/classmate-1.5.1.jar libs/b
+ yte-buddy-1.14.11.jar libs/jaxb-runtime-4.0.2.jar libs/jaxb-core-4.0.2.
+ jar libs/jakarta.xml.bind-api-4.0.0.jar libs/antlr4-runtime-4.13.0.jar 
+ libs/opencsv-5.9.jar libs/commons-text-1.11.0.jar libs/commons-lang3-3.
+ 13.0.jar libs/commons-collections4-4.4.jar libs/jaxb-api-2.3.1.jar libs
+ /angus-activation-2.0.0.jar libs/jakarta.activation-api-2.1.1.jar libs/
+ txw2-4.0.2.jar libs/istack-commons-runtime-4.1.1.jar
+Main-Class: com.mobiauto.Application
+

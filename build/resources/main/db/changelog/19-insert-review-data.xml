@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="29" author="author">
+        <sql>
+            INSERT INTO review (user_id, vehicle_id, rating, comment, timestamp)
+            VALUES (2, 2, 4, 'Nice car, but could use better mileage.', CURRENT_TIMESTAMP);
+        </sql>
+    </changeSet>
+
+    <changeSet id="30" author="author">
+        <sql>
+            INSERT INTO review (user_id, vehicle_id, rating, comment, timestamp)
+            VALUES (3, 3, 5, 'Excellent vehicle, no complaints!', CURRENT_TIMESTAMP);
+        </sql>
+    </changeSet>
+
+    <changeSet id="31" author="author">
+        <sql>
+            INSERT INTO review (user_id, vehicle_id, rating, comment, timestamp)
+            VALUES (4, 1, 4, 'Good overall, but could improve on interior design.', CURRENT_TIMESTAMP);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

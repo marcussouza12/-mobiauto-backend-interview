@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - UserServiceTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>UserServiceTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.mobiauto.html">com.mobiauto</a> &gt; UserServiceTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">1</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.001s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+<li>
+<a href="#tab3">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="initializationError"></a>
+<h3 class="failures">initializationError</h3>
+<span class="code">
+<pre>io.micronaut.context.exceptions.BeanInstantiationException: Bean definition [javax.sql.DataSource] could not be loaded: Migration failed! Liquibase encountered an exception.
+	at app//io.micronaut.context.DefaultBeanContext.initializeContext(DefaultBeanContext.java:1982)
+	at app//io.micronaut.context.DefaultApplicationContext.initializeContext(DefaultApplicationContext.java:294)
+	at app//io.micronaut.context.DefaultBeanContext.readAllBeanDefinitionClasses(DefaultBeanContext.java:3348)
+	at app//io.micronaut.context.DefaultBeanContext.finalizeConfiguration(DefaultBeanContext.java:3692)
+	at app//io.micronaut.context.DefaultBeanContext.start(DefaultBeanContext.java:342)
+	at app//io.micronaut.context.DefaultApplicationContext.start(DefaultApplicationContext.java:202)
+	at app//io.micronaut.test.extensions.AbstractMicronautExtension.startApplicationContext(AbstractMicronautExtension.java:507)
+	at app//io.micronaut.test.extensions.AbstractMicronautExtension.beforeClass(AbstractMicronautExtension.java:346)
+	at app//io.micronaut.test.extensions.junit5.MicronautJunit5Extension.beforeAll(MicronautJunit5Extension.java:84)
+	at java.base@18.0.1.1/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: io.micronaut.runtime.exceptions.ApplicationStartupException: Migration failed! Liquibase encountered an exception.
+	at app//io.micronaut.liquibase.AbstractLiquibaseMigration.migrate(AbstractLiquibaseMigration.java:146)
+	at app//io.micronaut.liquibase.AbstractLiquibaseMigration.forceRun(AbstractLiquibaseMigration.java:100)
+	at app//io.micronaut.liquibase.AbstractLiquibaseMigration.run(AbstractLiquibaseMigration.java:86)
+	at app//io.micronaut.liquibase.LiquibaseMigrationRunner.lambda$onCreated$1(LiquibaseMigrationRunner.java:64)
+	at java.base@18.0.1.1/java.util.Optional.ifPresent(Optional.java:178)
+	at app//io.micronaut.liquibase.LiquibaseMigrationRunner.onCreated(LiquibaseMigrationRunner.java:62)
+	at app//io.micronaut.liquibase.LiquibaseMigrationRunner.onCreated(LiquibaseMigrationRunner.java:39)
+	at app//io.micronaut.context.DefaultBeanContext.triggerBeanCreatedEventListener(DefaultBeanContext.java:2364)
+	at app//io.micronaut.context.DefaultBeanContext.postBeanCreated(DefaultBeanContext.java:2341)
+	at app//io.micronaut.context.DefaultBeanContext.doCreateBean(DefaultBeanContext.java:2285)
+	at app//io.micronaut.context.DefaultBeanContext.doCreateBean(DefaultBeanContext.java:2293)
+	at app//io.micronaut.context.DefaultBeanContext.createRegistration(DefaultBeanContext.java:3095)
+	at app//io.micronaut.context.SingletonScope.getOrCreate(SingletonScope.java:80)
+	at app//io.micronaut.context.DefaultBeanContext.findOrCreateSingletonBeanRegistration(DefaultBeanContext.java:2997)
+	at app//io.micronaut.context.DefaultBeanContext.initializeEagerBean(DefaultBeanContext.java:2669)
+	at app//io.micronaut.context.DefaultBeanContext.initializeContext(DefaultBeanContext.java:1976)
+	... 9 more
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/12-insert-user-data.xml::1::author:
+     Reason: liquibase.exception.DatabaseException: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13 [Failed SQL: (0) INSERT INTO user (username, password, email, registered_date)
+            VALUES ('john_doe', 'password123', 'john@example.com', CURRENT_TIMESTAMP)]
+	at app//liquibase.command.CommandScope.execute(CommandScope.java:253)
+	at app//liquibase.Liquibase.lambda$update$0(Liquibase.java:245)
+	at app//liquibase.Scope.lambda$child$0(Scope.java:186)
+	at app//liquibase.Scope.child(Scope.java:195)
+	at app//liquibase.Scope.child(Scope.java:185)
+	at app//liquibase.Scope.child(Scope.java:164)
+	at app//liquibase.Liquibase.runInScope(Liquibase.java:1419)
+	at app//liquibase.Liquibase.update(Liquibase.java:234)
+	at app//liquibase.Liquibase.update(Liquibase.java:212)
+	at app//io.micronaut.liquibase.AbstractLiquibaseMigration.performUpdate(AbstractLiquibaseMigration.java:315)
+	at app//io.micronaut.liquibase.AbstractLiquibaseMigration.performUpdateIfNeeded(AbstractLiquibaseMigration.java:187)
+	at app//io.micronaut.liquibase.AbstractLiquibaseMigration.migrate(AbstractLiquibaseMigration.java:140)
+	... 24 more
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/12-insert-user-data.xml::1::author:
+     Reason: liquibase.exception.DatabaseException: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13 [Failed SQL: (0) INSERT INTO user (username, password, email, registered_date)
+            VALUES ('john_doe', 'password123', 'john@example.com', CURRENT_TIMESTAMP)]
+	at app//liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:151)
+	at app//liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:110)
+	at app//liquibase.Scope.lambda$child$0(Scope.java:186)
+	at app//liquibase.Scope.child(Scope.java:195)
+	at app//liquibase.Scope.child(Scope.java:185)
+	at app//liquibase.Scope.child(Scope.java:164)
+	at app//liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:108)
+	at app//liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:105)
+	at app//liquibase.command.CommandScope.execute(CommandScope.java:217)
+	... 35 more
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/12-insert-user-data.xml::1::author:
+     Reason: liquibase.exception.DatabaseException: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13 [Failed SQL: (0) INSERT INTO user (username, password, email, registered_date)
+            VALUES ('john_doe', 'password123', 'john@example.com', CURRENT_TIMESTAMP)]
+	at app//liquibase.changelog.ChangeSet.execute(ChangeSet.java:797)
+	at app//liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:119)
+	at app//liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at app//liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:133)
+	at app//liquibase.Scope.lambda$child$0(Scope.java:186)
+	at app//liquibase.Scope.child(Scope.java:195)
+	at app//liquibase.Scope.child(Scope.java:185)
+	at app//liquibase.Scope.child(Scope.java:164)
+	at app//liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:122)
+	at app//liquibase.Scope.lambda$child$0(Scope.java:186)
+	at app//liquibase.Scope.child(Scope.java:195)
+	at app//liquibase.Scope.child(Scope.java:185)
+	at app//liquibase.Scope.child(Scope.java:164)
+	at app//liquibase.Scope.child(Scope.java:252)
+	at app//liquibase.Scope.child(Scope.java:256)
+	at app//liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:89)
+	... 43 more
+Caused by: liquibase.exception.DatabaseException: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13 [Failed SQL: (0) INSERT INTO user (username, password, email, registered_date)
+            VALUES ('john_doe', 'password123', 'john@example.com', CURRENT_TIMESTAMP)]
+	at app//liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:470)
+	at app//liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at app//liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:179)
+	at app//liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:141)
+	at app//liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1285)
+	at app//liquibase.changelog.ChangeSet.execute(ChangeSet.java:755)
+	... 58 more
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13
+	at app//org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2725)
+	at app//org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2412)
+	at app//org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:371)
+	at app//org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:502)
+	at app//org.postgresql.jdbc.PgStatement.execute(PgStatement.java:419)
+	at app//org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:341)
+	at app//org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:326)
+	at app//org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:302)
+	at app//org.postgresql.jdbc.PgStatement.execute(PgStatement.java:297)
+	at app//com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at app//com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at app//liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:464)
+	... 63 more
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">initializationError</td>
+<td class="failures">0.001s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>?[36m09:19:10.730?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mi.m.c.DefaultApplicationContext$RuntimeConfiguredEnvironment?[0;39m - Established active environments: [test]
+?[36m09:19:10.834?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mi.m.s.ObjectMappers$ObjectMapperContext$1?[0;39m - Established active environments: [test]
+?[36m09:19:10.973?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mcom.zaxxer.hikari.HikariDataSource?[0;39m - HikariPool-1 - Starting...
+?[36m09:19:11.065?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mcom.zaxxer.hikari.pool.HikariPool?[0;39m - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@62628e78
+?[36m09:19:11.065?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mcom.zaxxer.hikari.HikariDataSource?[0;39m - HikariPool-1 - Start completed.
+?[36m09:19:11.078?[0;39m ?[1;30m[Test worker]?[0;39m ?[34mINFO ?[0;39m ?[35mi.m.l.AbstractLiquibaseMigration?[0;39m - Running migrations for database with qualifier [default]
+Running Changeset: db/changelog/04-create-user-table.xml::1::author
+Running Changeset: db/changelog/05-create-vehicle-table.xml::2::author
+Running Changeset: db/changelog/06-create-vehicle-history-table.xml::3::author
+Running Changeset: db/changelog/07-create-negotiation-table.xml::4::author
+Running Changeset: db/changelog/08-create-message-table.xml::5::author
+Running Changeset: db/changelog/09-create-inspection-table.xml::6::author
+Running Changeset: db/changelog/10-create-test-drive-table.xml::7::author
+Running Changeset: db/changelog/11-create-review-table.xml::8::author
+Running Changeset: db/changelog/12-insert-user-data.xml::1::author
+
+UPDATE SUMMARY
+Run:                         32
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:           32
+
+ERROR: Exception Details
+ERROR: Exception Primary Class:  PSQLException
+ERROR: Exception Primary Reason: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13
+ERROR: Exception Primary Source: PostgreSQL 16.3 (Debian 16.3-1.pgdg120+1)
+?[36m09:19:13.018?[0;39m ?[1;30m[Test worker]?[0;39m ?[1;31mERROR?[0;39m ?[35mi.m.l.AbstractLiquibaseMigration?[0;39m - Migration failed! Liquibase encountered an exception.
+liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/12-insert-user-data.xml::1::author:
+     Reason: liquibase.exception.DatabaseException: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13 [Failed SQL: (0) INSERT INTO user (username, password, email, registered_date)
+            VALUES ('john_doe', 'password123', 'john@example.com', CURRENT_TIMESTAMP)]
+	at liquibase.command.CommandScope.execute(CommandScope.java:253)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1419)
+	at liquibase.Liquibase.update(Liquibase.java:234)
+	at liquibase.Liquibase.update(Liquibase.java:212)
+	at io.micronaut.liquibase.AbstractLiquibaseMigration.performUpdate(AbstractLiquibaseMigration.java:315)
+	at io.micronaut.liquibase.AbstractLiquibaseMigration.performUpdateIfNeeded(AbstractLiquibaseMigration.java:187)
+	at io.micronaut.liquibase.AbstractLiquibaseMigration.migrate(AbstractLiquibaseMigration.java:140)
+	at io.micronaut.liquibase.AbstractLiquibaseMigration.forceRun(AbstractLiquibaseMigration.java:100)
+	at io.micronaut.liquibase.AbstractLiquibaseMigration.run(AbstractLiquibaseMigration.java:86)
+	at io.micronaut.liquibase.LiquibaseMigrationRunner.lambda$onCreated$1(LiquibaseMigrationRunner.java:64)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at io.micronaut.liquibase.LiquibaseMigrationRunner.onCreated(LiquibaseMigrationRunner.java:62)
+	at io.micronaut.liquibase.LiquibaseMigrationRunner.onCreated(LiquibaseMigrationRunner.java:39)
+	at io.micronaut.context.DefaultBeanContext.triggerBeanCreatedEventListener(DefaultBeanContext.java:2364)
+	at io.micronaut.context.DefaultBeanContext.postBeanCreated(DefaultBeanContext.java:2341)
+	at io.micronaut.context.DefaultBeanContext.doCreateBean(DefaultBeanContext.java:2285)
+	at io.micronaut.context.DefaultBeanContext.doCreateBean(DefaultBeanContext.java:2293)
+	at io.micronaut.context.DefaultBeanContext.createRegistration(DefaultBeanContext.java:3095)
+	at io.micronaut.context.SingletonScope.getOrCreate(SingletonScope.java:80)
+	at io.micronaut.context.DefaultBeanContext.findOrCreateSingletonBeanRegistration(DefaultBeanContext.java:2997)
+	at io.micronaut.context.DefaultBeanContext.initializeEagerBean(DefaultBeanContext.java:2669)
+	at io.micronaut.context.DefaultBeanContext.initializeContext(DefaultBeanContext.java:1976)
+	at io.micronaut.context.DefaultApplicationContext.initializeContext(DefaultApplicationContext.java:294)
+	at io.micronaut.context.DefaultBeanContext.readAllBeanDefinitionClasses(DefaultBeanContext.java:3348)
+	at io.micronaut.context.DefaultBeanContext.finalizeConfiguration(DefaultBeanContext.java:3692)
+	at io.micronaut.context.DefaultBeanContext.start(DefaultBeanContext.java:342)
+	at io.micronaut.context.DefaultApplicationContext.start(DefaultApplicationContext.java:202)
+	at io.micronaut.test.extensions.AbstractMicronautExtension.startApplicationContext(AbstractMicronautExtension.java:507)
+	at io.micronaut.test.extensions.AbstractMicronautExtension.beforeClass(AbstractMicronautExtension.java:346)
+	at io.micronaut.test.extensions.junit5.MicronautJunit5Extension.beforeAll(MicronautJunit5Extension.java:84)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllCallbacks$12(ClassBasedTestDescriptor.java:396)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllCallbacks(ClassBasedTestDescriptor.java:396)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:212)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:85)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:148)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/12-insert-user-data.xml::1::author:
+     Reason: liquibase.exception.DatabaseException: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13 [Failed SQL: (0) INSERT INTO user (username, password, email, registered_date)
+            VALUES ('john_doe', 'password123', 'john@example.com', CURRENT_TIMESTAMP)]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:151)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:110)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:108)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:105)
+	at liquibase.command.CommandScope.execute(CommandScope.java:217)
+	... 89 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/12-insert-user-data.xml::1::author:
+     Reason: liquibase.exception.DatabaseException: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13 [Failed SQL: (0) INSERT INTO user (username, password, email, registered_date)
+            VALUES ('john_doe', 'password123', 'john@example.com', CURRENT_TIMESTAMP)]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:797)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:119)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:133)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:122)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:89)
+	... 97 common frames omitted
+Caused by: liquibase.exception.DatabaseException: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13 [Failed SQL: (0) INSERT INTO user (username, password, email, registered_date)
+            VALUES ('john_doe', 'password123', 'john@example.com', CURRENT_TIMESTAMP)]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:470)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:179)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:141)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1285)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:755)
+	... 112 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2725)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2412)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:371)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:502)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:419)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:341)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:326)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:302)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:297)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:464)
+	... 117 common frames omitted
+</pre>
+</span>
+</div>
+<div id="tab3" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>mai. 31, 2024 9:19:12 AM liquibase.database
+INFO: Set default schema name to public
+mai. 31, 2024 9:19:12 AM liquibase
+INFO: Parsed changelog file 'classpath:db/liquibase-changelog.xml'
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Reading from public.databasechangelog
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Reading from public.databasechangelog
+mai. 31, 2024 9:19:12 AM liquibase.lockservice
+INFO: Successfully acquired change log lock
+mai. 31, 2024 9:19:12 AM liquibase.command
+INFO: Using deploymentId: 7157952866
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Reading from public.databasechangelog
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Table user created
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: ChangeSet db/changelog/04-create-user-table.xml::1::author ran successfully in 16ms
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Table vehicle created
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: ChangeSet db/changelog/05-create-vehicle-table.xml::2::author ran successfully in 5ms
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Table vehicle_history created
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Foreign key constraint added to vehicle_history (vehicle_id)
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: ChangeSet db/changelog/06-create-vehicle-history-table.xml::3::author ran successfully in 9ms
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Table negotiation created
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Foreign key constraint added to negotiation (buyer_id)
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Foreign key constraint added to negotiation (vehicle_id)
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: ChangeSet db/changelog/07-create-negotiation-table.xml::4::author ran successfully in 7ms
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Table message created
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Foreign key constraint added to message (negotiation_id)
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Foreign key constraint added to message (sender_id)
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: ChangeSet db/changelog/08-create-message-table.xml::5::author ran successfully in 9ms
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Table inspection created
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Foreign key constraint added to inspection (user_id)
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Foreign key constraint added to inspection (vehicle_id)
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: ChangeSet db/changelog/09-create-inspection-table.xml::6::author ran successfully in 7ms
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Table test_drive created
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Foreign key constraint added to test_drive (user_id)
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Foreign key constraint added to test_drive (vehicle_id)
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: ChangeSet db/changelog/10-create-test-drive-table.xml::7::author ran successfully in 11ms
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Table review created
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Foreign key constraint added to review (user_id)
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: Foreign key constraint added to review (vehicle_id)
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+INFO: ChangeSet db/changelog/11-create-review-table.xml::8::author ran successfully in 9ms
+mai. 31, 2024 9:19:12 AM liquibase.changelog
+SEVERE: ChangeSet db/changelog/12-insert-user-data.xml::1::author encountered an exception.
+liquibase.exception.DatabaseException: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13 [Failed SQL: (0) INSERT INTO user (username, password, email, registered_date)
+            VALUES ('john_doe', 'password123', 'john@example.com', CURRENT_TIMESTAMP)]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:470)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:179)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:141)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1285)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:755)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:119)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:133)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:122)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:89)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:110)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:108)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:105)
+	at liquibase.command.CommandScope.execute(CommandScope.java:217)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1419)
+	at liquibase.Liquibase.update(Liquibase.java:234)
+	at liquibase.Liquibase.update(Liquibase.java:212)
+	at io.micronaut.liquibase.AbstractLiquibaseMigration.performUpdate(AbstractLiquibaseMigration.java:315)
+	at io.micronaut.liquibase.AbstractLiquibaseMigration.performUpdateIfNeeded(AbstractLiquibaseMigration.java:187)
+	at io.micronaut.liquibase.AbstractLiquibaseMigration.migrate(AbstractLiquibaseMigration.java:140)
+	at io.micronaut.liquibase.AbstractLiquibaseMigration.forceRun(AbstractLiquibaseMigration.java:100)
+	at io.micronaut.liquibase.AbstractLiquibaseMigration.run(AbstractLiquibaseMigration.java:86)
+	at io.micronaut.liquibase.LiquibaseMigrationRunner.lambda$onCreated$1(LiquibaseMigrationRunner.java:64)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at io.micronaut.liquibase.LiquibaseMigrationRunner.onCreated(LiquibaseMigrationRunner.java:62)
+	at io.micronaut.liquibase.LiquibaseMigrationRunner.onCreated(LiquibaseMigrationRunner.java:39)
+	at io.micronaut.context.DefaultBeanContext.triggerBeanCreatedEventListener(DefaultBeanContext.java:2364)
+	at io.micronaut.context.DefaultBeanContext.postBeanCreated(DefaultBeanContext.java:2341)
+	at io.micronaut.context.DefaultBeanContext.doCreateBean(DefaultBeanContext.java:2285)
+	at io.micronaut.context.DefaultBeanContext.doCreateBean(DefaultBeanContext.java:2293)
+	at io.micronaut.context.DefaultBeanContext.createRegistration(DefaultBeanContext.java:3095)
+	at io.micronaut.context.SingletonScope.getOrCreate(SingletonScope.java:80)
+	at io.micronaut.context.DefaultBeanContext.findOrCreateSingletonBeanRegistration(DefaultBeanContext.java:2997)
+	at io.micronaut.context.DefaultBeanContext.initializeEagerBean(DefaultBeanContext.java:2669)
+	at io.micronaut.context.DefaultBeanContext.initializeContext(DefaultBeanContext.java:1976)
+	at io.micronaut.context.DefaultApplicationContext.initializeContext(DefaultApplicationContext.java:294)
+	at io.micronaut.context.DefaultBeanContext.readAllBeanDefinitionClasses(DefaultBeanContext.java:3348)
+	at io.micronaut.context.DefaultBeanContext.finalizeConfiguration(DefaultBeanContext.java:3692)
+	at io.micronaut.context.DefaultBeanContext.start(DefaultBeanContext.java:342)
+	at io.micronaut.context.DefaultApplicationContext.start(DefaultApplicationContext.java:202)
+	at io.micronaut.test.extensions.AbstractMicronautExtension.startApplicationContext(AbstractMicronautExtension.java:507)
+	at io.micronaut.test.extensions.AbstractMicronautExtension.beforeClass(AbstractMicronautExtension.java:346)
+	at io.micronaut.test.extensions.junit5.MicronautJunit5Extension.beforeAll(MicronautJunit5Extension.java:84)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllCallbacks$12(ClassBasedTestDescriptor.java:396)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllCallbacks(ClassBasedTestDescriptor.java:396)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:212)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:85)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:148)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near &quot;user&quot;
+  Posição: 13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2725)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2412)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:371)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:502)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:419)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:341)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:326)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:302)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:297)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:464)
+	... 117 more
+
+mai. 31, 2024 9:19:13 AM liquibase.util
+INFO: UPDATE SUMMARY
+mai. 31, 2024 9:19:13 AM liquibase.util
+INFO: Run:                         32
+mai. 31, 2024 9:19:13 AM liquibase.util
+INFO: Previously run:               0
+mai. 31, 2024 9:19:13 AM liquibase.util
+INFO: Filtered out:                 0
+mai. 31, 2024 9:19:13 AM liquibase.util
+INFO: -------------------------------
+mai. 31, 2024 9:19:13 AM liquibase.util
+INFO: Total change sets:           32
+mai. 31, 2024 9:19:13 AM liquibase.util
+INFO: Update summary generated
+mai. 31, 2024 9:19:13 AM liquibase.command
+INFO: Update command encountered an exception.
+mai. 31, 2024 9:19:13 AM liquibase.lockservice
+INFO: Successfully released change log lock
+mai. 31, 2024 9:19:13 AM liquibase.command
+INFO: Logging exception.
+mai. 31, 2024 9:19:13 AM liquibase.command
+INFO: Command execution complete
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.7</a> at 31 de mai. de 2024 09:19:13</p>
+</div>
+</div>
+</body>
+</html>

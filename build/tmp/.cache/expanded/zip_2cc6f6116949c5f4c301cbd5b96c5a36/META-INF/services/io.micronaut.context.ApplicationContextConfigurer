@@ -1,0 +1,3 @@
+com.mobiauto.DeducedEnvironmentConfigurer
+com.mobiauto.NettyPropertiesAOTContextConfigurer
+com.mobiauto.AOTApplicationContextConfigurer

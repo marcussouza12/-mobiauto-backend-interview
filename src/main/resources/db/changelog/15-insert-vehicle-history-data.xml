@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="17" author="author">
+        <sql>
+            INSERT INTO vehicle_history (vehicle_id, event_date, description)
+            VALUES (2, '2023-06-20', 'Tire rotation and alignment');
+        </sql>
+    </changeSet>
+
+    <changeSet id="18" author="author">
+        <sql>
+            INSERT INTO vehicle_history (vehicle_id, event_date, description)
+            VALUES (3, '2023-07-10', 'Full body detailing');
+        </sql>
+    </changeSet>
+
+    <changeSet id="19" author="author">
+        <sql>
+            INSERT INTO vehicle_history (vehicle_id, event_date, description)
+            VALUES (1, '2023-08-05', 'Replaced brake pads');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

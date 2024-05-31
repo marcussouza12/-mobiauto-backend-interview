@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="14" author="author">
+        <sql>
+            INSERT INTO negotiation (buyer_id, vehicle_id, initial_offer, start_date)
+            VALUES (2, 1, 23000.00, CURRENT_TIMESTAMP);
+        </sql>
+    </changeSet>
+
+    <changeSet id="15" author="author">
+        <sql>
+            INSERT INTO negotiation (buyer_id, vehicle_id, initial_offer, start_date)
+            VALUES (3, 2, 20000.00, CURRENT_TIMESTAMP);
+        </sql>
+    </changeSet>
+
+    <changeSet id="16" author="author">
+        <sql>
+            INSERT INTO negotiation (buyer_id, vehicle_id, initial_offer, start_date)
+            VALUES (4, 3, 32000.00, CURRENT_TIMESTAMP);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
